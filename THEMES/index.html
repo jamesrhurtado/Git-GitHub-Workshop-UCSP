@@ -1,0 +1,140 @@
+<h1>🎨 Theme System Documentation</h1>
+<h2>Overview</h2>
+<p>This project now includes an advanced theme system that transforms the user interface with stunning visual themes! Users can easily switch between different themes using the dropdown selector in the top-right corner.</p>
+<h2>Available Themes</h2>
+<h3>🎨 Default Theme</h3>
+<ul>
+<li>Clean, modern design with gray and blue accents</li>
+<li>Professional appearance suitable for all audiences</li>
+<li>Excellent readability and accessibility</li>
+</ul>
+<h3>🕹️ 80s Retro Theme</h3>
+<ul>
+<li>Neon colors and synthwave aesthetics</li>
+<li>Animated gradient backgrounds</li>
+<li>Miami Vice inspired color palette</li>
+<li>Scanning line effects on cards</li>
+<li>Press Start 2P and Orbitron fonts</li>
+</ul>
+<h3>💻 Terminal Classic Theme</h3>
+<ul>
+<li>Classic VT100 terminal appearance</li>
+<li>Green-on-black color scheme</li>
+<li>Monospace Courier New font</li>
+<li>Blinking cursor animation in header</li>
+<li>Scan line overlay effect</li>
+<li>Command prompt styling</li>
+</ul>
+<h3>✏️ Hand-Sketched Theme</h3>
+<ul>
+<li>Hand-drawn, doodle-like appearance</li>
+<li>Rotated cards for playful effect</li>
+<li>Kalam handwritten font</li>
+<li>Paper texture backgrounds</li>
+<li>Colorful accent elements</li>
+<li>Sketch-style borders and shadows</li>
+</ul>
+<h3>⚙️ Steampunk Theme</h3>
+<ul>
+<li>Victorian-era meets industrial design</li>
+<li>Brass and copper color palette</li>
+<li>Spinning gear animations</li>
+<li>Georgia serif fonts</li>
+<li>Rich textures and shadows</li>
+<li>Mechanical aesthetic elements</li>
+</ul>
+<h3>🧙 Fantasy Realm Theme</h3>
+<ul>
+<li>Mystical and magical design</li>
+<li>Purple and lavender color scheme</li>
+<li>Sparkling particle effects</li>
+<li>Creepster and Georgia fonts</li>
+<li>Glowing text effects</li>
+<li>Enchanted visual elements</li>
+</ul>
+<h2>Features</h2>
+<h3>🎯 Theme Selector</h3>
+<ul>
+<li><strong>Location</strong>: Fixed position in the top-right corner</li>
+<li><strong>Accessibility</strong>: Keyboard navigation support (Enter/Space keys)</li>
+<li><strong>Persistence</strong>: Selected theme is saved in localStorage</li>
+<li><strong>Visual Feedback</strong>: Smooth transitions and hover effects</li>
+</ul>
+<h3>🔄 Smooth Transitions</h3>
+<ul>
+<li>Elegant fade transitions when switching themes</li>
+<li>Theme change notifications with themed styling</li>
+<li>Responsive animations and hover effects</li>
+<li>Reduced motion support for accessibility</li>
+</ul>
+<h3>📱 Responsive Design</h3>
+<ul>
+<li>Mobile-friendly theme selector</li>
+<li>Adaptive layouts for different screen sizes</li>
+<li>Touch-friendly controls</li>
+<li>Maintained readability across devices</li>
+</ul>
+<h3>♿ Accessibility Features</h3>
+<ul>
+<li>High contrast ratios maintained across all themes</li>
+<li>Keyboard navigation support</li>
+<li>Focus indicators for interactive elements</li>
+<li>Reduced motion preferences respected</li>
+<li>Screen reader friendly structure</li>
+</ul>
+<h2>Technical Implementation</h2>
+<h3>File Structure</h3>
+<pre><code>├── index.njk                 # Main HTML template with theme selector
+├── _includes/
+│   └── participant.njk       # Participant card template with theme classes
+└── assets/css/
+    └── themes.css           # Comprehensive theme styles
+</code></pre>
+<h3>Theme System Architecture</h3>
+<ul>
+<li><strong>Data Attribute</strong>: Uses <code>data-theme</code> on the <code>&lt;html&gt;</code> element</li>
+<li><strong>CSS Selectors</strong>: Theme-specific rules using attribute selectors</li>
+<li><strong>JavaScript</strong>: Vanilla JS for theme switching and persistence</li>
+<li><strong>Local Storage</strong>: Remembers user's theme preference</li>
+</ul>
+<h3>Custom Properties</h3>
+<p>Each theme defines specific CSS custom properties and rules for:</p>
+<ul>
+<li>Background colors and patterns</li>
+<li>Text colors and shadows</li>
+<li>Border styles and animations</li>
+<li>Font families and weights</li>
+<li>Special effects and transitions</li>
+</ul>
+<h2>Usage Instructions</h2>
+<ol>
+<li><strong>Selecting a Theme</strong>: Click the theme dropdown in the top-right corner</li>
+<li><strong>Theme Persistence</strong>: Your choice is automatically saved</li>
+<li><strong>Keyboard Access</strong>: Use Tab to focus the selector, then Enter/Space to activate</li>
+<li><strong>Mobile Usage</strong>: Tap the selector on mobile devices</li>
+</ol>
+<h2>Browser Support</h2>
+<ul>
+<li>Modern browsers with CSS custom properties support</li>
+<li>Graceful degradation for older browsers</li>
+<li>Progressive enhancement approach</li>
+<li>Cross-platform compatibility</li>
+</ul>
+<h2>Performance Considerations</h2>
+<ul>
+<li>Efficient CSS organization with minimal redundancy</li>
+<li>Smooth animations using CSS transforms</li>
+<li>Optimized font loading with Google Fonts display swap</li>
+<li>Minimal JavaScript for theme switching logic</li>
+</ul>
+<h2>Future Enhancements</h2>
+<ul>
+<li>Theme preview thumbnails</li>
+<li>Custom theme builder</li>
+<li>Import/export theme configurations</li>
+<li>Additional theme variations</li>
+<li>System theme detection (dark/light mode)</li>
+</ul>
+<hr>
+<p><strong>Created as part of the UCSP &amp; GitHub Workshop</strong><br>
+<em>Transform your interface, express your creativity!</em> 🚀</p>

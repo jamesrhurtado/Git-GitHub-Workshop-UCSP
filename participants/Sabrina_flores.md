@@ -1,5 +1,5 @@
 ---
-name: Sabrina Flo
+name: Sabrina Flores
 career: Ciencias de la computacion
 hobbies: Leer, programar, comer, dormir, leer mangas, molestar a mi enamorada
 description: Soy un estudiante de la carrera de Ciencias de la Computacion con mucha fe. Deseo aprender todo lo que pueda. Espero no jalar nada y ganar mucho dinero y mantener a mi flaquito. 

@@ -1,0 +1,1332 @@
+/* ===========================
+   THEME SELECTOR STYLES
+   =========================== */
+
+.theme-selector-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.theme-selector {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.theme-dropdown {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #374151;
+  min-width: 180px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.theme-dropdown:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: scale(1.02);
+}
+
+.theme-dropdown option {
+  padding: 8px;
+  font-weight: 600;
+}
+
+/* ===========================
+   BASE STYLES & ANIMATIONS
+   =========================== */
+
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Base styles - ensure Tailwind classes work */
+.header {
+  background-color: white !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  padding: 1rem 1.5rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  transition: all 0.5s ease;
+}
+
+.nav-link {
+  color: #4b5563 !important;
+  font-weight: 500 !important;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #2563eb !important;
+}
+
+.card {
+  background-color: white !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  padding: 1.5rem !important;
+  text-align: center !important;
+  transition: all 0.3s ease;
+  max-width: 100%;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Ensure image sizing works */
+.participant-image {
+  width: 96px !important; /* w-24 */
+  height: 96px !important; /* h-24 */
+  border-radius: 50% !important; /* rounded-full */
+  margin: 0 auto 1rem auto !important; /* mx-auto mb-4 */
+  object-fit: cover !important; /* object-cover */
+  display: block;
+}
+
+/* Fix GitHub icon size */
+.github-icon {
+  width: 20px !important; /* w-5 */
+  height: 20px !important; /* h-5 */
+  margin-right: 0.5rem !important; /* mr-2 */
+  flex-shrink: 0 !important;
+}
+
+/* SVG size utilities */
+.w-5 {
+  width: 1.25rem !important; /* 20px */
+}
+
+.h-5 {
+  height: 1.25rem !important; /* 20px */
+}
+
+.mr-2 {
+  margin-right: 0.5rem !important;
+}
+
+/* Ensure grid layout works */
+.container {
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Grid fixes */
+.grid {
+  display: grid !important;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, 1fr) !important;
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+.gap-8 {
+  gap: 2rem !important;
+}
+
+/* Typography fixes */
+.text-4xl {
+  font-size: 2.25rem !important;
+  line-height: 2.5rem !important;
+}
+
+.text-xl {
+  font-size: 1.25rem !important;
+  line-height: 1.75rem !important;
+}
+
+.text-lg {
+  font-size: 1.125rem !important;
+  line-height: 1.75rem !important;
+}
+
+.font-bold {
+  font-weight: 700 !important;
+}
+
+.font-semibold {
+  font-weight: 600 !important;
+}
+
+.font-medium {
+  font-weight: 500 !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+/* Color fixes */
+.text-gray-800 {
+  color: #1f2937 !important;
+}
+
+.text-gray-600 {
+  color: #4b5563 !important;
+}
+
+.text-emerald-600 {
+  color: #059669 !important;
+}
+
+/* Spacing fixes */
+.mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 1rem !important;
+}
+
+.mb-8 {
+  margin-bottom: 2rem !important;
+}
+
+.mb-12 {
+  margin-bottom: 3rem !important;
+}
+
+.py-8 {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+.px-4 {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Layout fixes */
+.min-h-screen {
+  min-height: 100vh !important;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.inline-flex {
+  display: inline-flex !important;
+}
+
+.flex-col {
+  flex-direction: column !important;
+}
+
+.items-center {
+  align-items: center !important;
+}
+
+.space-x-4 > * + * {
+  margin-left: 1rem !important;
+}
+
+.space-x-8 > * + * {
+  margin-left: 2rem !important;
+}
+
+.h-10 {
+  height: 2.5rem !important;
+}
+
+.max-w-3xl {
+  max-width: 48rem !important;
+}
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.mt-auto {
+  margin-top: auto !important;
+}
+
+/* Background and body fixes */
+.bg-gray-50 {
+  background-color: #f9fafb !important;
+}
+
+.bg-gray-900 {
+  background-color: #111827 !important;
+}
+
+.text-white {
+  color: white !important;
+}
+
+/* Transitions */
+.transition-all {
+  transition-property: all !important;
+}
+
+.duration-500 {
+  transition-duration: 0.5s !important;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke !important;
+}
+
+.duration-300 {
+  transition-duration: 0.3s !important;
+}
+
+.logo-image {
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* ===========================
+   DEFAULT THEME
+   =========================== */
+
+[data-theme="default"] body {
+  background-color: #f9fafb;
+}
+
+/* ===========================
+   80S RETRO THEME 🕹️
+   =========================== */
+
+[data-theme="retro80s"] body {
+  background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
+  background-size: 400% 400%;
+  animation: retroGradient 8s ease infinite;
+  font-family: 'Orbitron', monospace;
+}
+
+[data-theme="retro80s"] .theme-selector {
+  background: linear-gradient(135deg, #ff006e, #8338ec);
+  border: 2px solid #06ffa5;
+  box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
+}
+
+[data-theme="retro80s"] .theme-dropdown {
+  color: white;
+  font-weight: bold;
+}
+
+[data-theme="retro80s"] .header {
+  background: linear-gradient(90deg, #000, #1a1a2e, #16213e);
+  border-bottom: 3px solid #06ffa5;
+  box-shadow: 0 4px 20px rgba(6, 255, 165, 0.3);
+}
+
+[data-theme="retro80s"] .nav-link {
+  color: #06ffa5;
+  text-shadow: 0 0 10px rgba(6, 255, 165, 0.5);
+  font-weight: bold;
+}
+
+[data-theme="retro80s"] .nav-link:hover {
+  color: #ff006e;
+  text-shadow: 0 0 15px rgba(255, 0, 110, 0.8);
+}
+
+[data-theme="retro80s"] .card {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border: 2px solid #06ffa5;
+  color: white;
+  box-shadow: 0 0 25px rgba(6, 255, 165, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="retro80s"] .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(6, 255, 165, 0.2), transparent);
+  animation: retroScan 3s infinite;
+}
+
+[data-theme="retro80s"] h1 {
+  color: #ff006e;
+  text-shadow: 0 0 20px rgba(255, 0, 110, 0.8);
+  font-family: 'Press Start 2P', cursive;
+}
+
+[data-theme="retro80s"] h2 {
+  color: #06ffa5;
+  text-shadow: 0 0 10px rgba(6, 255, 165, 0.5);
+}
+
+@keyframes retroGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes retroScan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* ===========================
+   TERMINAL CLASSIC THEME 💻
+   =========================== */
+
+[data-theme="terminal"] body {
+  background: #000 !important;
+  color: #00ff00 !important;
+  font-family: 'Courier New', monospace !important;
+  position: relative;
+}
+
+[data-theme="terminal"] main,
+[data-theme="terminal"] .main-section,
+[data-theme="terminal"] .container {
+  background: #000 !important;
+  color: #00ff00 !important;
+}
+
+[data-theme="terminal"] .theme-info-container {
+  background: #000 !important;
+}
+
+[data-theme="terminal"] .theme-description-card {
+  background: #111 !important;
+  border: 2px solid #00ff00 !important;
+  color: #00ff00 !important;
+}
+
+[data-theme="terminal"] .theme-preview-badge {
+  background: #000 !important;
+  border: 2px solid #00ff00 !important;
+  color: #00ff00 !important;
+}
+
+[data-theme="terminal"] .theme-switch-info {
+  background: #111 !important;
+  border: 2px solid #00ff00 !important;
+  color: #00ff00 !important;
+}
+
+[data-theme="terminal"] p,
+[data-theme="terminal"] .text-gray-600,
+[data-theme="terminal"] .text-gray-400 {
+  color: #00ff00 !important;
+}
+
+[data-theme="terminal"] .text-center {
+  color: #00ff00 !important;
+}
+
+[data-theme="terminal"] html,
+[data-theme="terminal"] * {
+  border-color: #00ff00 !important;
+}
+
+/* Comprehensive dark overrides for terminal theme */
+[data-theme="terminal"] .nav-link,
+[data-theme="terminal"] .theme-selector-nav,
+[data-theme="terminal"] .theme-dropdown-nav,
+[data-theme="terminal"] nav,
+[data-theme="terminal"] .flex,
+[data-theme="terminal"] .space-x-4,
+[data-theme="terminal"] .space-x-6 {
+  background: #000 !important;
+  color: #00ff00 !important;
+}
+
+[data-theme="terminal"] .nav-link {
+  background: #111 !important;
+  border: 1px solid #00ff00 !important;
+  color: #00ff00 !important;
+}
+
+[data-theme="terminal"] .nav-link:hover {
+  background: #00ff00 !important;
+  color: #000 !important;
+}
+
+[data-theme="terminal"] .active-nav {
+  background: #00ff00 !important;
+  color: #000 !important;
+}
+
+[data-theme="terminal"] .theme-dropdown-nav {
+  background: #000 !important;
+  border: 1px solid #00ff00 !important;
+  color: #00ff00 !important;
+}
+
+[data-theme="terminal"] .theme-dropdown-nav:focus {
+  background: #111 !important;
+  border-color: #00ff00 !important;
+  outline: none !important;
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.5) !important;
+}
+
+/* Override any remaining white backgrounds */
+[data-theme="terminal"] div,
+[data-theme="terminal"] section,
+[data-theme="terminal"] article,
+[data-theme="terminal"] aside {
+  background-color: transparent !important;
+}
+
+/* Preserve bold styling for section headings in participant cards */
+.participant-section-title {
+  font-weight: 600 !important;
+}
+
+/* Keep all images untouched - no filters */
+img, .logo-image, .participant-image {
+  filter: none !important;
+}
+
+/* Override Tailwind classes for terminal theme */
+[data-theme="terminal"] .bg-gray-50 {
+  background-color: #000 !important;
+}
+
+[data-theme="terminal"] .bg-white {
+  background-color: #000 !important;
+}
+
+[data-theme="terminal"] .bg-gray-100,
+[data-theme="terminal"] .bg-gray-200 {
+  background-color: #111 !important;
+}
+
+[data-theme="terminal"] body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.03),
+    rgba(0, 255, 0, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="terminal"] .theme-selector {
+  background: #000;
+  border: 2px solid #00ff00;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+[data-theme="terminal"] .theme-dropdown {
+  color: #00ff00;
+  background: #000;
+  font-family: 'Courier New', monospace;
+}
+
+[data-theme="terminal"] .header {
+  background: #000 !important;
+  border-bottom: 2px solid #00ff00 !important;
+  position: relative;
+  color: #00ff00 !important;
+}
+
+[data-theme="terminal"] .header * {
+  background: transparent !important;
+  color: #00ff00 !important;
+}
+
+[data-theme="terminal"] .header::before {
+  content: 'user@workshop:~$ ';
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+[data-theme="terminal"] .header::after {
+  content: '█';
+  position: absolute;
+  left: 140px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+[data-theme="terminal"] .nav-link {
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  text-decoration: none;
+}
+
+[data-theme="terminal"] .nav-link:hover {
+  color: #fff;
+  background: #00ff00;
+  padding: 2px 4px;
+}
+
+[data-theme="terminal"] .card {
+  background: #000 !important;
+  border: 1px solid #00ff00 !important;
+  color: #00ff00 !important;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.2) !important;
+}
+
+[data-theme="terminal"] .card * {
+  background: transparent !important;
+  color: #00ff00 !important;
+}
+
+[data-theme="terminal"] h1, [data-theme="terminal"] h2, [data-theme="terminal"] h3 {
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* ===========================
+   HAND-SKETCHED THEME ✏️
+   =========================== */
+
+[data-theme="sketch"] body {
+  background: #fffef7;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(0,0,0,0.15) 1px, transparent 0),
+    linear-gradient(45deg, rgba(255,182,193,0.1) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(135,206,235,0.1) 25%, transparent 25%);
+  background-size: 20px 20px, 40px 40px, 40px 40px;
+  font-family: 'Kalam', cursive;
+}
+
+[data-theme="sketch"] .theme-selector {
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 20px;
+  transform: rotate(-1deg);
+  box-shadow: 3px 3px 0px #333;
+}
+
+[data-theme="sketch"] .theme-dropdown {
+  font-family: 'Kalam', cursive;
+  color: #333;
+}
+
+[data-theme="sketch"] .header {
+  background: #fff;
+  border-bottom: 3px solid #333;
+  border-radius: 0 0 20px 20px;
+  transform: rotate(0.5deg);
+  box-shadow: 0 5px 0 #333;
+}
+
+[data-theme="sketch"] .nav-link {
+  color: #333;
+  font-weight: bold;
+  position: relative;
+}
+
+[data-theme="sketch"] .nav-link:hover {
+  color: #ff6b6b;
+}
+
+[data-theme="sketch"] .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff6b6b;
+  transition: width 0.3s ease;
+}
+
+[data-theme="sketch"] .nav-link:hover::after {
+  width: 100%;
+}
+
+[data-theme="sketch"] .card {
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 15px;
+  transform: rotate(-1deg);
+  box-shadow: 5px 5px 0px #333;
+  position: relative;
+}
+
+[data-theme="sketch"] .card:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+[data-theme="sketch"] .card:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+[data-theme="sketch"] h1 {
+  color: #333;
+  font-family: 'Kalam', cursive;
+  font-weight: 700;
+  transform: rotate(-0.5deg);
+}
+
+[data-theme="sketch"] h2, [data-theme="sketch"] h3 {
+  color: #333;
+  font-family: 'Kalam', cursive;
+}
+
+/* ===========================
+   STEAMPUNK THEME ⚙️
+   =========================== */
+
+[data-theme="steampunk"] body {
+  background: linear-gradient(135deg, #8b4513, #a0522d, #cd853f);
+  background-attachment: fixed;
+  color: #2c1810 !important;
+  font-family: 'Georgia', serif;
+}
+
+[data-theme="steampunk"] .theme-selector {
+  background: linear-gradient(135deg, #f4e4bc, #ede0c8);
+  border: 2px solid #8b4513;
+  box-shadow: 0 0 20px rgba(139, 69, 19, 0.3);
+  position: relative;
+}
+
+[data-theme="steampunk"] .theme-selector::before {
+  content: '⚙️';
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: spin 4s linear infinite;
+}
+
+[data-theme="steampunk"] .theme-dropdown {
+  color: #654321 !important;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+}
+
+[data-theme="steampunk"] .header {
+  background: linear-gradient(90deg, #f4e4bc, #ede0c8);
+  border-bottom: 3px solid #8b4513;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+[data-theme="steampunk"] .header::before {
+  content: '⚙️ ⚙️ ⚙️';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #daa520;
+  font-size: 18px;
+}
+
+[data-theme="steampunk"] .nav-link {
+  color: #654321 !important;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(244, 228, 188, 0.5);
+}
+
+[data-theme="steampunk"] .nav-link:hover {
+  color: #2c1810 !important;
+  background-color: rgba(218, 165, 32, 0.2);
+  border-radius: 4px;
+  padding: 4px 8px;
+  text-shadow: none;
+}
+
+[data-theme="steampunk"] .card {
+  background: linear-gradient(135deg, #f4e4bc, #ede0c8);
+  border: 2px solid #8b4513;
+  color: #2c1810 !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+[data-theme="steampunk"] .card::before {
+  content: '⚙️';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #daa520;
+  font-size: 20px;
+  animation: spin 6s linear infinite;
+}
+
+[data-theme="steampunk"] h1 {
+  color: #654321 !important;
+  font-family: 'Georgia', serif;
+  text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.3);
+  font-weight: bold;
+}
+
+[data-theme="steampunk"] h2, [data-theme="steampunk"] h3 {
+  color: #654321 !important;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===========================
+   FANTASY REALM THEME 🧙
+   =========================== */
+
+[data-theme="fantasy"] body {
+  background: linear-gradient(135deg, #1a0033, #330066, #4d0080, #660099);
+  background-attachment: fixed;
+  color: #e6ccff;
+  font-family: 'Georgia', serif;
+  position: relative;
+}
+
+[data-theme="fantasy"] body::before {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="white" opacity="0.3"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.5"/><circle cx="50" cy="10" r="1.5" fill="white" opacity="0.4"/><circle cx="10" cy="80" r="1" fill="white" opacity="0.6"/></svg>');
+  animation: sparkle 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="fantasy"] .theme-selector {
+  background: linear-gradient(135deg, #330066, #660099);
+  border: 2px solid #9966cc;
+  box-shadow: 0 0 25px rgba(153, 102, 204, 0.5);
+  position: relative;
+}
+
+[data-theme="fantasy"] .theme-selector::before {
+  content: '✨';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+[data-theme="fantasy"] .theme-dropdown {
+  color: #e6ccff;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+}
+
+[data-theme="fantasy"] .header {
+  background: linear-gradient(90deg, #1a0033, #330066);
+  border-bottom: 3px solid #9966cc;
+  box-shadow: 0 4px 20px rgba(153, 102, 204, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+[data-theme="fantasy"] .nav-link {
+  color: #e6ccff;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  text-shadow: 0 0 10px rgba(230, 204, 255, 0.5);
+}
+
+[data-theme="fantasy"] .nav-link:hover {
+  color: #9966cc;
+  text-shadow: 0 0 15px rgba(153, 102, 204, 0.8);
+}
+
+[data-theme="fantasy"] .card {
+  background: linear-gradient(135deg, #1a0033, #330066);
+  border: 2px solid #9966cc;
+  color: #e6ccff;
+  box-shadow: 0 8px 25px rgba(153, 102, 204, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+[data-theme="fantasy"] .card::before {
+  content: '🔮';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+[data-theme="fantasy"] h1 {
+  color: #9966cc;
+  font-family: 'Creepster', cursive;
+  text-shadow: 0 0 20px rgba(153, 102, 204, 0.8);
+}
+
+[data-theme="fantasy"] h2 {
+  color: #e6ccff;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+}
+
+[data-theme="fantasy"] h3 {
+  color: #ccb3ff;
+  font-family: 'Georgia', serif;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+
+@media (max-width: 768px) {
+  .theme-selector-container {
+    top: 10px;
+    right: 10px;
+  }
+  
+  .theme-dropdown {
+    font-size: 12px;
+    min-width: 150px;
+    padding: 6px 8px;
+  }
+  
+  [data-theme="terminal"] .header::before {
+    display: none;
+  }
+  
+  [data-theme="steampunk"] .header::before {
+    display: none;
+  }
+}
+
+/* ===========================
+   ACCESSIBILITY ENHANCEMENTS
+   =========================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.theme-dropdown:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+[data-theme="retro80s"] .theme-dropdown:focus {
+  outline-color: #06ffa5;
+}
+
+[data-theme="terminal"] .theme-dropdown:focus {
+  outline-color: #00ff00;
+}
+
+[data-theme="sketch"] .theme-dropdown:focus {
+  outline-color: #ff6b6b;
+}
+
+[data-theme="steampunk"] .theme-dropdown:focus {
+  outline-color: #daa520;
+}
+
+[data-theme="fantasy"] .theme-dropdown:focus {
+  outline-color: #9966cc;
+}
+
+/* ===========================
+   PARTICIPANT CARD THEMING
+   =========================== */
+
+/* Default theme participant styles */
+[data-theme="default"] .participant-name {
+  color: #1f2937;
+}
+
+[data-theme="default"] .participant-text,
+[data-theme="default"] .participant-section-title {
+  color: #4b5563;
+}
+
+[data-theme="default"] .github-link {
+  color: #4b5563;
+}
+
+[data-theme="default"] .github-link:hover {
+  color: #2563eb;
+}
+
+/* 80s Retro participant styles */
+[data-theme="retro80s"] .participant-name {
+  color: #06ffa5;
+  text-shadow: 0 0 10px rgba(6, 255, 165, 0.5);
+}
+
+[data-theme="retro80s"] .participant-career {
+  color: #ff006e !important;
+}
+
+[data-theme="retro80s"] .participant-text,
+[data-theme="retro80s"] .participant-section-title {
+  color: #e0e0e0;
+}
+
+[data-theme="retro80s"] .github-link {
+  color: #06ffa5;
+}
+
+[data-theme="retro80s"] .github-link:hover {
+  color: #ff006e;
+}
+
+/* Terminal participant styles */
+[data-theme="terminal"] .participant-name,
+[data-theme="terminal"] .participant-career,
+[data-theme="terminal"] .participant-text,
+[data-theme="terminal"] .participant-section-title,
+[data-theme="terminal"] .github-link {
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+}
+
+[data-theme="terminal"] .github-link:hover {
+  color: #fff;
+  background: #00ff00;
+  padding: 2px 4px;
+}
+
+/* Sketch participant styles */
+[data-theme="sketch"] .participant-name,
+[data-theme="sketch"] .participant-section-title {
+  color: #333;
+  font-family: 'Kalam', cursive;
+  font-weight: 700;
+}
+
+[data-theme="sketch"] .participant-career {
+  color: #ff6b6b !important;
+  font-family: 'Kalam', cursive;
+}
+
+[data-theme="sketch"] .participant-text {
+  color: #555;
+  font-family: 'Kalam', cursive;
+}
+
+[data-theme="sketch"] .github-link {
+  color: #333;
+  font-family: 'Kalam', cursive;
+}
+
+[data-theme="sketch"] .github-link:hover {
+  color: #ff6b6b;
+}
+
+/* Steampunk participant styles */
+[data-theme="steampunk"] .participant-name {
+  color: #8b4513 !important;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.3);
+}
+
+[data-theme="steampunk"] .participant-career {
+  color: #654321 !important;
+  font-family: 'Georgia', serif;
+  font-weight: 600;
+}
+
+[data-theme="steampunk"] .participant-text,
+[data-theme="steampunk"] .participant-section-title {
+  color: #2c1810 !important;
+  font-family: 'Georgia', serif;
+}
+
+[data-theme="steampunk"] .participant-section-title {
+  color: #654321 !important;
+  font-weight: 700 !important;
+  font-size: 1.1em;
+}
+
+[data-theme="steampunk"] .github-link {
+  color: #8b4513 !important;
+  font-family: 'Georgia', serif;
+  font-weight: 600;
+}
+
+[data-theme="steampunk"] .github-link:hover {
+  color: #654321 !important;
+  background-color: rgba(218, 165, 32, 0.2);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+/* Fantasy participant styles */
+[data-theme="fantasy"] .participant-name {
+  color: #9966cc;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+}
+
+[data-theme="fantasy"] .participant-career {
+  color: #e6ccff !important;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+}
+
+[data-theme="fantasy"] .participant-text,
+[data-theme="fantasy"] .participant-section-title {
+  color: #e6ccff;
+  font-family: 'Georgia', serif;
+}
+
+[data-theme="fantasy"] .github-link {
+  color: #e6ccff;
+  font-family: 'Georgia', serif;
+}
+
+[data-theme="fantasy"] .github-link:hover {
+  color: #9966cc;
+}
+
+/* ===========================
+   THEME CHANGE NOTIFICATION
+   =========================== */
+
+.theme-notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="retro80s"] .theme-notification {
+  background: linear-gradient(135deg, #ff006e, #8338ec);
+  color: white;
+  border: 2px solid #06ffa5;
+  box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
+}
+
+[data-theme="terminal"] .theme-notification {
+  background: #000;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  font-family: 'Courier New', monospace;
+}
+
+[data-theme="sketch"] .theme-notification {
+  background: #fff;
+  color: #333;
+  border: 3px solid #333;
+  font-family: 'Kalam', cursive;
+  transform: translate(-50%, -50%) rotate(-2deg);
+}
+
+[data-theme="steampunk"] .theme-notification {
+  background: linear-gradient(135deg, #8b4513, #cd853f);
+  color: #f4e4bc;
+  border: 2px solid #daa520;
+  font-family: 'Georgia', serif;
+}
+
+[data-theme="fantasy"] .theme-notification {
+  background: linear-gradient(135deg, #330066, #660099);
+  color: #e6ccff;
+  border: 2px solid #9966cc;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+}
+
+/* Footer logo fixes */
+.footer-logo {
+  height: 32px !important;
+  max-height: 32px !important;
+  width: auto !important;
+}
+
+/* Section display fixes */
+.main-section {
+  display: none !important;
+}
+
+.main-section.active-section {
+  display: block !important;
+}
+
+/* Theme info section styles */
+.theme-info-container {
+  max-width: 4xl !important;
+  margin: 0 auto !important;
+  padding: 2rem !important;
+}
+
+.theme-info-header {
+  text-align: center !important;
+  margin-bottom: 3rem !important;
+}
+
+.theme-preview-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  background: rgba(59, 130, 246, 0.1) !important;
+  border: 2px solid #3b82f6 !important;
+  border-radius: 1rem !important;
+  padding: 0.75rem 1.5rem !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  margin-top: 1rem !important;
+}
+
+.theme-description-card {
+  background: white !important;
+  border-radius: 1rem !important;
+  padding: 2rem !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  margin-bottom: 2rem !important;
+}
+
+.theme-features-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.theme-features-list li {
+  padding: 0.5rem 0 !important;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.theme-features-list li:last-child {
+  border-bottom: none !important;
+}
+
+.theme-gallery {
+  margin-top: 3rem !important;
+}
+
+.theme-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  gap: 1.5rem !important;
+  margin-top: 1.5rem !important;
+}
+
+.theme-card {
+  text-align: center !important;
+  padding: 1rem !important;
+  border-radius: 0.75rem !important;
+  border: 2px solid #e5e7eb !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.theme-card:hover {
+  border-color: #3b82f6 !important;
+  transform: translateY(-2px) !important;
+}
+
+.theme-preview {
+  height: 60px !important;
+  border-radius: 0.5rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Footer theme adaptations */
+footer {
+  transition: all 0.3s ease !important;
+}
+
+[data-theme="retro80s"] footer {
+  background: linear-gradient(135deg, #ff00ff, #00ffff) !important;
+  color: #fff !important;
+}
+
+[data-theme="terminal"] footer {
+  background: #000 !important;
+  color: #00ff00 !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+[data-theme="sketch"] footer {
+  background: #f7f3f0 !important;
+  color: #5d4e75 !important;
+  transform: rotate(-1deg) !important;
+  margin-top: 2rem !important;
+}
+
+[data-theme="steampunk"] footer {
+  background: linear-gradient(135deg, #8b4513, #cd853f) !important;
+  color: #f4e4bc !important;
+}
+
+[data-theme="fantasy"] footer {
+  background: linear-gradient(135deg, #330066, #660099) !important;
+  color: #e6ccff !important;
+}

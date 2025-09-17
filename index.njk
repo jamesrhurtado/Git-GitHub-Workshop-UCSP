@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="default">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Participantes del Taller</title>
+    <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/themes.css' | url }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Creepster&family=Orbitron:wght@400;700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-gray-50 min-h-screen flex flex-col transition-all duration-500 ease-in-out">
+    <header class="header">
+      <div class="flex items-center space-x-4">
+        <img src="{{ '/assets/ucsp-logo.png' | url }}" alt="UCSP Logo" class="h-8 logo-image">
+        <img src="{{ '/assets/github-logo.png' | url }}" alt="GitHub Logo" class="h-8 logo-image">
+      </div>
+      <nav class="flex items-center space-x-6">
+        <a href="#home" class="nav-link active-nav" id="home-link">🏠 Inicio</a>
+        <a href="#theme-info" class="nav-link" id="theme-info-link">🎨 Tema</a>
+        <div class="theme-selector-nav">
+          <select id="theme-selector" class="theme-dropdown-nav">
+            <option value="default">🎨 Default</option>
+            <option value="retro80s">🕹️ 80s Retro</option>
+            <option value="terminal">💻 Terminal Classic</option>
+            <option value="sketch">✏️ Hand-Sketched</option>
+            <option value="steampunk">⚙️ Steampunk</option>
+            <option value="fantasy">🧙 Fantasy Realm</option>
+          </select>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+      <!-- Home Section -->
+      <section id="home-section" class="main-section active-section">
+        <h1 class="text-4xl font-bold text-center mb-8">UCSP x GitHub</h1>
+        <p class="max-w-3xl mx-auto text-lg text-gray-600 text-center mb-12">
+          Bienvenidos al directorio de participantes del taller colaborativo entre la Universidad Católica San Pablo y
+          GitHub. Este taller introductorio proporciona a los estudiantes las habilidades fundamentales para el
+          control de versiones y la colaboración en proyectos de desarrollo de software.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {% for participant in collections.participants %}
+            {% include "participant.njk" %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <!-- Theme Info Section -->
+      <section id="theme-info-section" class="main-section">
+        <div class="theme-info-container max-w-4xl mx-auto">
+          <div class="theme-info-header text-center mb-8">
+            <h1 class="text-4xl font-bold mb-4">🎨 Información del Tema</h1>
+            <div class="theme-preview-badge inline-flex items-center gap-3 bg-blue-50 border-2 border-blue-500 rounded-2xl px-6 py-3 text-xl font-semibold">
+              <span id="theme-name">Classic</span>
+            </div>
+          </div>
+          
+          <div class="theme-description-card bg-white rounded-xl p-8 shadow-lg mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800">📖 Descripción</h2>
+            <p id="theme-description" class="text-lg text-gray-600 mb-6 leading-relaxed">
+              El tema por defecto con colores profesionales y diseño limpio.
+            </p>
+            
+            <div class="theme-features mb-6">
+              <h3 class="text-xl font-semibold mb-4 text-gray-800">✨ Características</h3>
+              <ul id="theme-features" class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">▸</span>
+                  <span>Paleta neutra y profesional</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="theme-inspiration">
+              <h3 class="text-xl font-semibold mb-4 text-gray-800">💡 Inspiración</h3>
+              <p id="theme-inspiration" class="text-gray-600 leading-relaxed">
+                Principios de diseño web moderno, interfaz profesional y usabilidad óptima para todos los usuarios.
+              </p>
+            </div>
+          </div>
+
+          <div class="theme-switch-info bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+            <h3 class="text-lg font-semibold mb-2 text-gray-800">🎯 Cambiar Tema</h3>
+            <p class="text-gray-600">
+              Usa el selector de temas en la esquina superior derecha para explorar los diferentes estilos visuales disponibles. 
+              Cada tema ofrece una experiencia única con colores, tipografías y efectos especiales.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-auto bg-gray-900 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center justify-center space-y-4">
+          <div class="flex items-center space-x-6">
+            <img src="{{ '/assets/ucsp-logo.png' | url }}" alt="UCSP Logo" class="footer-logo h-8 brightness-0 invert">
+            <img src="{{ '/assets/github-logo.png' | url }}" alt="GitHub Logo" class="footer-logo h-8 brightness-0 invert">
+          </div>
+          <div class="text-center">
+            <p class="text-sm text-gray-400">Desarrollado como parte del programa de colaboración UCSP & GitHub</p>
+            <p class="text-sm text-gray-400">© 2025 Universidad Católica San Pablo & GitHub</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Theme Switching JavaScript -->
+    <script>
+      const themeSelector = document.getElementById('theme-selector');
+      const html = document.documentElement;
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem('selectedTheme') || 'default';
+      html.setAttribute('data-theme', savedTheme);
+      themeSelector.value = savedTheme;
+
+      // Theme switch handler
+      themeSelector.addEventListener('change', function() {
+        const selectedTheme = this.value;
+        
+        // Add smooth transition effect
+        document.body.style.transition = 'opacity 0.3s ease';
+        document.body.style.opacity = '0.7';
+        
+        setTimeout(() => {
+          html.setAttribute('data-theme', selectedTheme);
+          localStorage.setItem('selectedTheme', selectedTheme);
+          
+          // Update theme info if the theme info section is active
+          if (themeInfoSection.classList.contains('active-section')) {
+            updateThemeInfo(selectedTheme);
+          }
+          
+          // Show confirmation message
+          showThemeChangeNotification(selectedTheme);
+          
+          // Add subtle loading effect to theme selector
+          themeSelector.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            themeSelector.style.transform = 'scale(1)';
+            document.body.style.opacity = '1';
+          }, 100);
+        }, 150);
+      });
+
+      // Theme change notification
+      function showThemeChangeNotification(theme) {
+        const themeNames = {
+          'default': '🎨 Default Theme',
+          'retro80s': '🕹️ 80s Retro Activated!',
+          'terminal': '💻 Terminal Mode Engaged',
+          'sketch': '✏️ Hand-Sketched Style Active',
+          'steampunk': '⚙️ Steampunk Realm Entered',
+          'fantasy': '🧙 Fantasy Realm Unlocked'
+        };
+        
+        // Remove any existing notification
+        const existing = document.querySelector('.theme-notification');
+        if (existing) existing.remove();
+        
+        const notification = document.createElement('div');
+        notification.className = 'theme-notification';
+        notification.textContent = themeNames[theme];
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.style.opacity = '0';
+          setTimeout(() => notification.remove(), 300);
+        }, 2000);
+      }
+
+      // Accessibility keyboard support
+      themeSelector.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          this.click();
+        }
+      });
+
+      // Navigation functionality
+      const homeBtn = document.getElementById('home-btn');
+      const themeInfoBtn = document.getElementById('theme-info-btn');
+      const homeSection = document.getElementById('home-section');
+      const themeInfoSection = document.getElementById('theme-info-section');
+
+      function showSection(sectionName) {
+        // Remove active class from all sections
+        homeSection.classList.remove('active-section');
+        themeInfoSection.classList.remove('active-section');
+        
+        if (sectionName === 'home') {
+          homeSection.classList.add('active-section');
+          homeBtn.classList.add('bg-blue-600', 'text-white');
+          homeBtn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+          themeInfoBtn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+          themeInfoBtn.classList.remove('bg-blue-600', 'text-white');
+        } else if (sectionName === 'theme-info') {
+          themeInfoSection.classList.add('active-section');
+          themeInfoBtn.classList.add('bg-blue-600', 'text-white');
+          themeInfoBtn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+          homeBtn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+          homeBtn.classList.remove('bg-blue-600', 'text-white');
+          // Update theme info when switching to theme section
+          updateThemeInfo(html.getAttribute('data-theme'));
+        }
+      }
+
+      // Theme information data
+      const themeData = {
+        'retro80s': {
+          name: '🕹️ 80s Retro',
+          description: 'Un viaje nostálgico a la década de los 80, con colores vibrantes y tipografía pixel art que evoca los primeros videojuegos.',
+          features: ['Paleta de colores neón vibrante', 'Efectos de sombra y resplandor', 'Fuente Press Start 2P estilo pixel', 'Gradientes llamativos estilo synthwave'],
+          inspiration: 'Inspirado en videojuegos arcade, cultura synthwave y la estética cyberpunk de los años 80.'
+        },
+        'terminal': {
+          name: '💻 Terminal Classic',
+          description: 'La elegancia minimalista de las terminales clásicas con texto verde fosforescente sobre fondo negro profundo.',
+          features: ['Tipografía monoespaciada clásica', 'Colores de terminal auténticos', 'Bordes y líneas simples', 'Estética retro computing pura'],
+          inspiration: 'Terminales Unix clásicas, cultura hacker ética y la nostalgia de la línea de comandos.'
+        },
+        'sketch': {
+          name: '✏️ Hand-Sketched',
+          description: 'Un diseño orgánico y natural que simula bocetos hechos a mano con elementos inclinados y trazos irregulares.',
+          features: ['Rotaciones sutiles y aleatorias', 'Bordes irregulares y naturales', 'Fuente manuscrita Kalam', 'Paleta de colores cálidos y terrosos'],
+          inspiration: 'Cuadernos de bocetos de diseñador, creatividad artesanal y la belleza de lo imperfecto.'
+        },
+        'steampunk': {
+          name: '⚙️ Steampunk',
+          description: 'La elegancia de la era victoriana fusionada con tecnología de vapor, engranajes y elementos industriales.',
+          features: ['Colores bronce, cobre y dorado', 'Tipografía serif clásica', 'Gradientes metálicos ricos', 'Estética industrial victoriana'],
+          inspiration: 'Literatura steampunk, revolución industrial y la imaginación de una era victoriana alternativa.'
+        },
+        'fantasy': {
+          name: '🧙 Fantasy Realm',
+          description: 'Un reino místico lleno de magia antigua, con colores púrpura profundos y una atmósfera encantada y misteriosa.',
+          features: ['Paleta mágica púrpura y violeta', 'Efectos de brillo y resplandor', 'Tipografía serif elegante y élfica', 'Gradientes místicos envolventes'],
+          inspiration: 'Mundos de alta fantasía, magia medieval y los grandes universos épicos de la literatura fantástica.'
+        },
+        'default': {
+          name: '🎨 Classic',
+          description: 'El tema por defecto con colores profesionales, diseño limpio y una estética moderna y accesible.',
+          features: ['Paleta neutra y profesional', 'Diseño moderno y minimalista', 'Tipografía clara y legible', 'Colores corporativos equilibrados'],
+          inspiration: 'Principios de diseño web moderno, interfaz profesional y usabilidad óptima para todos los usuarios.'
+        }
+      };
+
+      function updateThemeInfo(theme) {
+        const info = themeData[theme] || themeData['default'];
+        document.getElementById('theme-name').textContent = info.name;
+        document.getElementById('theme-description').textContent = info.description;
+        
+        const featuresList = document.getElementById('theme-features');
+        featuresList.innerHTML = '';
+        info.features.forEach(feature => {
+          const li = document.createElement('li');
+          li.className = 'mb-2 flex items-start';
+          li.innerHTML = `<span class="text-blue-500 mr-2">▸</span><span>${feature}</span>`;
+          featuresList.appendChild(li);
+        });
+        
+        document.getElementById('theme-inspiration').textContent = info.inspiration;
+      }
+
+      // Event listeners for navigation
+      homeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        showSection('home');
+      });
+      
+      themeInfoBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        showSection('theme-info');
+      });
+
+      // Initialize with home section
+      showSection('home');
+
+      // Demo mode: automatically cycle through themes (uncomment for demo)
+      // let currentThemeIndex = 0;
+      // const themes = ['default', 'retro80s', 'terminal', 'sketch', 'steampunk', 'fantasy'];
+      // setInterval(() => {
+      //   currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+      //   themeSelector.value = themes[currentThemeIndex];
+      //   themeSelector.dispatchEvent(new Event('change'));
+      // }, 5000);
+    </script>
+  </body>
+</html>
